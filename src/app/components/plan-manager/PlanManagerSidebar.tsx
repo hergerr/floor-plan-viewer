@@ -16,9 +16,6 @@ const PlanManagerSidebar:React.FC = () => {
   useEffect(() => {
     async function computePlans(modelId: number) {
       await viewer.plans.computeAllPlanViews(modelId);
-      viewer.clipper.deleteAllPlanes();
-      // does not reacreate planes
-      await viewer.plans.computeAllPlanViews(modelId);
       const plans = viewer.plans.getAll(modelId);
       setPlans(plans);
     }
